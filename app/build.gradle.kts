@@ -64,27 +64,27 @@ dependencies {
 
     //Compose Navigation
     var nav_version = "2.7.7"
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation(libs.androidx.navigation.compose)
 
     //Coil
-    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation(libs.coil.compose)
 
     //Datastore
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation(libs.androidx.datastore.preferences)
 
     //Compose Foundation
-    implementation("androidx.compose.foundation:foundation:1.6.8")
+    implementation(libs.androidx.foundation)
 
     //Accompanist
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
+    implementation(libs.accompanist.systemuicontroller)
 
 
     //Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-android-compiler:2.48")
+    implementation(libs.hilt.android.v248)
+    kapt(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
