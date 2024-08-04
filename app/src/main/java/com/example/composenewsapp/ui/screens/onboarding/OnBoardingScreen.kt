@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
@@ -23,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.composenewsapp.domain.models.getSamplePages
 import com.example.composenewsapp.ui.common.NewsButton
 import com.example.composenewsapp.ui.common.NewsTextButton
@@ -31,7 +30,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(viewModel: OnBoardingViewModel) {
     val pagerState = rememberPagerState(initialPage = 0) {
         getSamplePages().size
     }
@@ -68,7 +67,9 @@ fun OnBoardingScreen() {
             )
             Row(Modifier.padding()) {
                 NewsTextButton(
-                    modifier = Modifier.height(40.dp).navigationBarsPadding(),
+                    modifier = Modifier
+                        .height(40.dp)
+                        .navigationBarsPadding(),
                     text = buttonsState.value.get(0)
                 )
                 {
@@ -84,8 +85,8 @@ fun OnBoardingScreen() {
                 }
                 NewsButton(modifier = Modifier.height(40.dp), text = buttonsState.value.get(1)) {
                     scope.launch {
-                        if (pagerState.currentPage == 3) {
-                            pagerState.animateScrollToPage(0)
+                        if (pagerState.currentPage == 2) {
+                            viewModel.onEvent(OnBoardingScreenEvents.OnGetStarted)
                         } else {
                             pagerState.animateScrollToPage(
                                 page = pagerState.currentPage + 1
@@ -103,5 +104,5 @@ fun OnBoardingScreen() {
 @Preview
 @Composable
 private fun Preview() {
-    OnBoardingScreen()
+    OnBoardingScreen(hiltViewModel())
 }
