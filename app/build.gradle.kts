@@ -62,8 +62,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    //Compose Navigation
-    var nav_version = "2.7.7"
     implementation(libs.androidx.navigation.compose)
 
     //Coil
@@ -82,9 +80,21 @@ dependencies {
     //Dagger Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.hilt.android.v248)
     kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.core.splashscreen)
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+
+    //Paging 3
+    var paging_version = "3.1.1"
+    implementation("androidx.paging:paging-runtime:$paging_version")
+    implementation("androidx.paging:paging-compose:3.2.0-rc01")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
