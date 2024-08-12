@@ -3,7 +3,7 @@ package com.example.composenewsapp.ui.screens.onboarding
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.composenewsapp.domain.usecases.AppEntryUseCases
+import com.example.composenewsapp.domain.usecases.appentry.AppEntryUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

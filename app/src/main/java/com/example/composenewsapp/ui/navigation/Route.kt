@@ -13,4 +13,6 @@ sealed class Route(
     object NewsAppHomeNavigation : Route(route = "newsAppHomeNavigation")
 
     object NewsAppHomeScreen : Route(route = "newsAppHomeScreen")
+
+    object SearchScreen : Route(route = "searchScreen")
 }
